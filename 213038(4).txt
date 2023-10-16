@@ -1,0 +1,333 @@
+Exp #01:-
+
+using System;
+
+namespace program
+{
+    class program
+    {
+        static void Main(string[] args)
+        {
+            int[] number = { 1, 2, 3, 5, 6, -4, -3, 0, -1 };
+            foreach (int i in number)
+                System.Console.WriteLine("{0} " , i);
+        }
+    }
+}
+
+Exp #02:-
+
+using System;
+
+namespace program
+{
+    class program
+    {
+        static void Main(string[] args)
+        {
+            int[,] numbers2D = new int [ 3, 2 ] { { 9, 99 },{ 3, 33 }, { 5, 55}  };
+            foreach (int i in numbers2D)
+                System.Console.WriteLine("{0} " , i);
+        }
+    }
+}
+
+Exp #03:-
+
+using System;
+
+namespace program
+{
+    class TestArrayCalss
+    {
+        static void Main(string[] args)
+        {
+            int[] array1 = new int[5];
+
+            int[] array2 = new int[] {1, 3, 5, 7, 9 };
+
+            int[] array3 = {1, 2, 3, 4, 5, 6};
+
+            int[ , ]  multiDimensionalArray1 = new int[2, 3];
+
+            int[ , ] multiDimensionalArray2 = { { 1, 2, 3} , { 4, 5, 6 } };
+           
+            int[][] program = new int[6][];
+
+            program[0] = new int[] {1, 2, 3, 4};
+
+        }
+    }
+}
+
+
+
+
+
+Exp #05:-
+
+using System;
+
+namespace program
+{
+    class TestArrayCalss
+    {
+        static void Main(string[] args)
+        {
+            int[][] arr = new int[2][];
+
+            arr[0] = new int[5] {1, 3, 5, 7, 9 };
+
+            arr[1] = new int[4]{ 2, 4, 6, 8};
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write("Element ({0}) : " , i);
+
+                for (int j = 0; j <arr.Length; j++)
+                {
+                    Console.Write($"arr({0})arr({1})", arr[i][j] == (arr[i].Length - 1) ? "" : " " );
+
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Press any key to exit. ");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+Quesiton 4:
+using System;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Initialize the responses using random data (you can replace this with actual data if you have it)
+        Random rand = new Random();
+        int[] responses = new int[40];
+        for (int i = 0; i < responses.Length; i++)
+        {
+            responses[i] = rand.Next(1, 6);  // Random number between 1 and 5 (inclusive)
+        }
+
+        // Array to store the frequency of each response
+        int[] frequency = new int[5];
+
+        // Count the frequency of each response
+        foreach (int response in responses)
+        {
+            frequency[response - 1]++;
+        }
+
+        // Display the frequency summary
+        for (int i = 0; i < frequency.Length; i++)
+        {
+            Console.WriteLine($"Response {i + 1} given by: {frequency[i]} people");
+        }
+    }
+}
+
+Question 7:
+using System;
+
+class Program
+{
+    const int SIZE = 3;
+
+    static void Main()
+    {
+        int[,] matrixA = new int[SIZE, SIZE];
+        int[,] matrixB = new int[SIZE, SIZE];
+
+        Console.WriteLine("Enter the elements for Matrix A:");
+        ReadMatrix(matrixA);
+
+        Console.WriteLine("\nEnter the elements for Matrix B:");
+        ReadMatrix(matrixB);
+
+        int[,] resultMatrix = MultiplyMatrices(matrixA, matrixB);
+
+        Console.WriteLine("\nResultant Matrix after multiplication (A x B):");
+        PrintMatrix(resultMatrix);
+    }
+
+    static void ReadMatrix(int[,] matrix)
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                Console.Write($"Enter element at position [{i + 1},{j + 1}]: ");
+                matrix[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+    }
+
+    static int[,] MultiplyMatrices(int[,] matrixA, int[,] matrixB)
+    {
+        int[,] result = new int[SIZE, SIZE];
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                result[i, j] = 0;
+
+                for (int k = 0; k < SIZE; k++)
+                {
+                    result[i, j] += matrixA[i, k] * matrixB[k, j];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    static void PrintMatrix(int[,] matrix)
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                Console.Write($"{matrix[i, j]}\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+
+Q#1:
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[,] myArray = Initialize2DArray(); // Initialize the 2D array
+        Print2DArray(myArray); // Print the 2D array
+    }
+
+    static int[,] Initialize2DArray()
+    {
+        int[,] array = new int[3, 4]; // Define a 3x4 array
+
+        // Initialize the elements of the array
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                array[i, j] = i * 4 + j + 1; // Assigning values for demonstration
+            }
+        }
+
+        return array;
+    }
+
+    static void Print2DArray(int[,] array)
+    {
+        int rows = array.GetLength(0);
+        int columns = array.GetLength(1);
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
+            {
+                Console.Write(array[i, j] + "\t"); // Output each element
+            }
+            Console.WriteLine(); // Move to the next row
+        }
+    }
+}
+
+Q#2:
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string[] s = { "hello ", "and ", "welcome ", "to ", "this ", "demo! " };
+        string mergedString = Merger(s);
+
+        Console.WriteLine(mergedString);
+    }
+
+    static string Merger(string[] inputArray)
+    {
+        return string.Concat(inputArray);
+    }
+}
+Q#3:
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string inputString = "This is a sample string with words of various lengths.";
+
+        string[] result = ExtractWordsWithCriteria(inputString);
+
+        Console.WriteLine("Words with 4-5 characters and containing vowels:");
+        foreach (string word in result)
+        {
+            Console.WriteLine(word);
+        }
+    }
+
+    static string[] ExtractWordsWithCriteria(string input)
+    {
+        // Use regular expressions to split the input into words
+        string[] words = Regex.Split(input, @"\W+");
+
+        // Use LINQ to filter words based on length and vowel presence
+        string[] filteredWords = words
+            .Where(word => word.Length >= 4 && word.Length <= 5 && ContainsVowels(word))
+            .ToArray();
+
+        return filteredWords;
+    }
+
+    static bool ContainsVowels(string word)
+    {
+        string vowels = "AEIOUaeiou";
+        return word.Any(c => vowels.Contains(c));
+    }
+}
+Q#5:
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Decimal to Binary Conversion");
+        Console.Write("Enter a decimal number: ");
+        int decimalNumber = int.Parse(Console.ReadLine());
+        string binaryResult = DecimalToBinary(decimalNumber);
+        Console.WriteLine($"Binary representation: {binaryResult}");
+
+        Console.WriteLine("\nBinary to Decimal Conversion");
+        Console.Write("Enter a binary number: ");
+        string binaryNumber = Console.ReadLine();
+        int decimalResult = BinaryToDecimal(binaryNumber);
+        Console.WriteLine($"Decimal representation: {decimalResult}");
+    }
+
+    static string DecimalToBinary(int decimalNumber)
+    {
+        return Convert.ToString(decimalNumber, 2);
+    }
+
+    static int BinaryToDecimal(string binaryNumber)
+    {
+        return Convert.ToInt32(binaryNumber, 2);
+    }
+}
